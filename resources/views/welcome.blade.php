@@ -6,15 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <title>Laravel</title>
-
+       
     </head>
     <body>
-        <input id='message' type="text" onkeyup="update();">
-        <h1 id="h1"></h1>
+        <div id="app">
+            {{-- v-model ทำให้ message มีค่าเท่ากับ data.message --}}
+            <input id='message' type="text" v-model = "message">
+            <h1 id="h1">@{{ message }}</h1>
+        </div>
     </body>
     <script>
-        var hello = 'hello world';
-        document.getElementById('message').value = hello;
-        document.getElementById('h1').innerHTML= hello;
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                age: 23
+            }
+        })
     </script>
 </html>
