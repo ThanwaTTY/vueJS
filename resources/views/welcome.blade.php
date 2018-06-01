@@ -13,14 +13,19 @@
             {{-- v-model ทำให้ message มีค่าเท่ากับ data.message --}}
             <input id='message' type="text" v-model = "message">
             <h1 id="h1">@{{ message }}</h1>
+
+            <ul>
+            <li v-for="name in names">@{{ name }}</li>
+            </ul>
         </div>
     </body>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!',
-                age: 23
+                message: 'Hello world',
+                age: 23,
+                names: ['Tor','Por','Ppppap','Pop']
             }
         })
     </script>
