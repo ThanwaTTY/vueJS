@@ -10,12 +10,13 @@
     </head>
     <body>
         <div id="app">
+            {{-- <h1 v-show ="show">Title</h1> --}}
             {{-- v-model ทำให้ message มีค่าเท่ากับ data.message --}}
             <input id='message' type="text" v-model = "message" @keydown.enter="addName">
             <button @click="addName">Add</button>
             <h1 id="h1">@{{ message }}</h1>
 
-            <ul>
+            <ul v-show ="show">
             <li v-for="name in names">@{{ name }}</li>
             </ul>
         </div>
@@ -25,7 +26,7 @@
             el: '#app',
             data: {
                 message: 'Hello world',
-                age: 23,
+                show: true,
                 names: ['Tor','Por','Ppppap','Pop','Man']
             },
 
