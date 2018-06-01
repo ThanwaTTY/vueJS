@@ -13,6 +13,9 @@
         .green{
                 background: green;
         }
+        .blue{
+                background: blue;
+        }
         </style>
        
     </head>
@@ -27,7 +30,12 @@
             <h1 id="h1">@{{ message }}</h1>
 
             <ul v-show ="show">
-            <li v-for="name in names">@{{ name }}</li>
+                <li v-for="name in names">@{{ name }}</li>
+            </ul>
+
+            <h3>Computed Data</h3>
+            <ul>
+                <li v-for="number in lessThan6Number">@{{ number }}</li>
             </ul>
         </div>
     </body>
@@ -35,10 +43,11 @@
         var app = new Vue({
             el: '#app',
             data: {
-                className: 'red',
+                className: 'blue',
                 message: 'Hello world',
                 show: true,
-                names: ['Tor','Por','Ppppap','Pop','Man']
+                names: ['Tor','Por','Ppppap','Pop','Man'],
+                numbers: [1,2,3,4,5,6,7,8,9,10],
             },
 
             methods: {
@@ -46,6 +55,14 @@
                         this.names.push(this.message);
                         this.message = ""
                     }
+            },
+
+            computed: {
+                lessThan6Number() {
+                    return this.numbers.filter((number) => {
+                        return number % 2 == 0;
+                    });
+                }
             }
         })
     </script>
