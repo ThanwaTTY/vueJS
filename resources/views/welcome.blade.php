@@ -12,6 +12,7 @@
         <div id="app">
             {{-- v-model ทำให้ message มีค่าเท่ากับ data.message --}}
             <input id='message' type="text" v-model = "message" @keydown.enter="addName">
+            <button @click="addName">Add</button>
             <h1 id="h1">@{{ message }}</h1>
 
             <ul>
