@@ -11,7 +11,7 @@
     <body>
         <div id="app">
             {{-- v-model ทำให้ message มีค่าเท่ากับ data.message --}}
-            <input id='message' type="text" v-model = "message">
+            <input id='message' type="text" v-model = "message" @keydown.enter="addName">
             <h1 id="h1">@{{ message }}</h1>
 
             <ul>
@@ -25,7 +25,14 @@
             data: {
                 message: 'Hello world',
                 age: 23,
-                names: ['Tor','Por','Ppppap','Pop']
+                names: ['Tor','Por','Ppppap','Pop','Man']
+            },
+
+            methods: {
+                    addName() {
+                        this.names.push(this.message);
+                        this.message = ""
+                    }
             }
         })
     </script>
